@@ -46,7 +46,8 @@ const selectItem = (event, img) => {
   if (item === -1) {
     sliders.push(img);
   } else {
-    alert('Hey, Already added !')
+    sliders.pop(img);
+    //alert('Hey, Already added !')
   }
 }
 var timer
@@ -82,7 +83,7 @@ const createSlider = () => {
   timer = setInterval(function () {
     slideIndex++;
     changeSlide(slideIndex);
-  }, duration);
+  }, 3000);
 }
 
 // change slider index 
@@ -122,3 +123,15 @@ searchBtn.addEventListener('click', function () {
 sliderBtn.addEventListener('click', function () {
   createSlider()
 })
+
+function search() {
+  if(event.keyCode == 13) {
+     getImages();myFunction();
+  }
+}
+function myFunction() {
+  var x = document.getElementById("snackbar");
+  x.className = "show";
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+
